@@ -1,0 +1,11 @@
+[
+    {
+        "model": "gpt3-damo-base-zh"
+    },
+    {
+        "model": "gpt3-damo-large-zh"
+    },
+    {
+        "model": "gpt4all"
+    }
+]

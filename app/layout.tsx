@@ -1,12 +1,10 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+
 import Sidebar from "@/components/Sidebar";
 import { SessionProvider } from "@/components/SessionProvider";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import Login from "@/components/Login";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "FarmGPT",
@@ -20,21 +18,22 @@ export default async function RootLayout({
 }) {
   const session = await getServerSession(authOptions);
 
+  console.log(session)
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <SessionProvider session={session}>
-          {/**要記得加入login 部分*/}
+          {!session ? (
+            <Login />
+          ) : (
+            
             <div className="flex">
               <div className="max-w-xs h-screen overflow-y-auto md:min-w-[15rem]">
                 <Sidebar />
               </div>
-
-              {/**client provider, it is thinking, a notification */}
-
               <div className="bg-[#343541] flex-1">{children}</div>
             </div>
-          
+          )}
         </SessionProvider>
       </body>
     </html>

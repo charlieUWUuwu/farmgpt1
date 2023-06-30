@@ -1,31 +1,12 @@
-import NextAuth, { NextAuthOptions } from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials";
+import NextAuth from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
 
-export const authOptions: NextAuthOptions = {
-  session: {
-    strategy: "jwt",
-  },
+export const authOptions = {
+  secret: process.env.NEXTAUTH_SECRET as string,
   providers: [
-    CredentialsProvider({
-      type: "credentials",
-      credentials: {
-        email: { label: "Email", type: "email", placeholder: "user@email.com" },
-        password: { label: "Password", type: "password" },
-      },
-      authorize(credentials, req) {
-        const { email, password } = credentials as {
-          email: string;
-          password: string;
-        };
-
-        //this email&password is for demo
-        if (email !== "farmer@gmail.com" && password !== "1234") {
-          return null;
-        }
-
-        //if everything is fine
-        return { id: "1234", name: "farmer", email: "farmer@gmail.com" };
-      },
+    GoogleProvider({
+      clientId: process.env.GOOGLE_ID!,
+      clientSecret: process.env.GOOGLE_SECRET!,
     }),
     // ...add more providers here
   ],

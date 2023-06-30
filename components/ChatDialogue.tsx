@@ -1,9 +1,14 @@
 type Props = {
-  chatId: string;
-};
+    chatId: string;
+  };
+  
 
-function ChatDialogue({ chatId }: Props) {
-  return <div></div>;
+function Chatdialogue({chatId}: Props) {
+  return (
+    <div className="flex-1">
+      
+    </div>
+  )
 }
 
-export default ChatDialogue;
+export default Chatdialogue

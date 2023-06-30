@@ -1,4 +1,4 @@
-"use client";
+'use client'
 import { signIn } from "next-auth/react";
 
 function Login() {
@@ -7,11 +7,7 @@ function Login() {
       <h1 className="text-5xl">農業進化，淨零未來</h1>
       <div className="">登入使用FarmGPT</div>
       <button
-        onClick={() => {
-          signIn('Credentials', {
-            callbackUrl: ''
-          });
-        }}
+        onClick={() => signIn("google")}
         className="w-1/6 h-10 text-black align-middle rounded-full animate-pulse bg-gradient-to-r from-[#DCFC34] to-[#10E5B2]"
       >
         login

@@ -45,7 +45,7 @@ function HomePage() {
           <div className="space-y-2">
             <p className="infoText">對於農業以外的問題我無法了解</p>
             <p className="infoText">我無法回應與農業、碳市場無關的問題</p>
-            <p className="infoText">""</p>
+            <p className="infoText">若要更清楚的資訊，請更詳細描述問題</p>
           </div>
         </div>
       </div>
